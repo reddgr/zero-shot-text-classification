@@ -1,7 +1,10 @@
 # zero-shot-text-classification
 The scripts and notebooks in this repository are used to fine-tune an NLI language model for zero-shot text classification.
 
-## Model available on Hugging Face: zero-shot-prompt-classifier-bart-ft
+Dataset available on Hugging Face: [reddgr/nli-chatbot-prompt-categorization](https://huggingface.co/datasets/reddgr/nli-chatbot-prompt-categorization))
+Model available on Hugging Face: [reddgr/zero-shot-prompt-classifier-bart-ft](https://huggingface.co/reddgr/zero-shot-prompt-classifier-bart-ft))
+
+## Model: zero-shot-prompt-classifier-bart-ft
 
 This model is a fine-tuned version of [facebook/bart-large-mnli](https://huggingface.co/facebook/bart-large-mnli) on the [reddgr/nli-chatbot-prompt-categorization](https://huggingface.co/datasets/reddgr/nli-chatbot-prompt-categorization) dataset.
 
@@ -22,7 +25,7 @@ The chart below compares the results for the 12 most popular candidate classes i
 
 The dataset and the model are continously updated as they assist with content publishing on my website [Talking to Chatbots](https://talkingtochatbots) 
 
-## Dataset available on Hugging Face: reddgr/nli-chatbot-prompt-categorization
+## Dataset: reddgr/nli-chatbot-prompt-categorization
 
 The dataset contains chatbot prompts annotated with natural language inference (NLI) category hypotheses and labels ({0: "contradiction", 1: "neutral", 2: "entailment"}).
 
