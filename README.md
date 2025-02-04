@@ -1,4 +1,4 @@
-# zero-shot-text-classification
+# Zero Shot Text Classification with Natural Language Inference Fine-Tuning of Large Language Models
 This repository contains scripts and notebooks for fine-tuning an NLI language model for zero-shot text classification. The root folder contains notebooks I regularly use for categorizing chatbot prompts in my website project [Talking to Chatbots](https://talkingtochatbots.com). All the scripts, classes, and notebooks may be reused in any project involving natural language inference datasets and zero-shot text classification with large language models.
 
 - Dataset available on Hugging Face: [reddgr/nli-chatbot-prompt-categorization](https://huggingface.co/datasets/reddgr/nli-chatbot-prompt-categorization))
