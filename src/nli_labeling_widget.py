@@ -53,9 +53,9 @@ class NLILabelingWidget:
         skip_button = Button(description="SKIP", button_style="info")
         end_button = Button(description="END SESSION", button_style="warning")
         text_box = Text(description="Other entailment:", placeholder="Enter category")
-        text_box_cont = Text(description="Other contradiction:", placeholder="Enter category")
         text_box_n = Text(description="Other neutral:", placeholder="Enter category")
-
+        text_box_cont = Text(description="Other contradiction:", placeholder="Enter category")
+        
         # Bind button actions
         def on_correct_button_clicked(_):
             label_text(nli_label=2, category=self.top_category)  # Entailment
