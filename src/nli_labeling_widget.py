@@ -161,8 +161,8 @@ class NLILabelingWidget:
             HBox([skip_button]),
             spinner,
             text_box,
-            text_box_cont,
             text_box_n,
+            text_box_cont,
             HBox([end_button], layout={'justify_content': 'flex-end'}),
         ]))
 
