@@ -15,15 +15,19 @@ The model is fine-tuned and tested on the natural language inference (NLI) datas
 
 Below is a confusion matrix calculated on zero-shot inferences for the 10 most popular categories in the Test split of [reddgr/nli-chatbot-prompt-categorization](https://huggingface.co/datasets/reddgr/nli-chatbot-prompt-categorization) at the time of the first model upload. The classification with the base model on the same small test dataset is shown for comparison:
 
-![Zero-shot prompt classification confusion matrix for reddgr/zero-shot-prompt-classifier-bart-ft](https://talkingtochatbots.com/wp-content/uploads/2025/01/zero-shot-prompt-classification-comparison-10-classes-60-accuracy.png)
+![Zero-shot prompt classification confusion matrix for reddgr/zero-shot-prompt-classifier-bart-ft](https://talkingtochatbots.com/wp-content/uploads/zero-shot-prompt-classifier/10-category-matrix.png)
 
-The current version of the fine-tuned model outperforms the base model [facebook/bart-large-mnli](https://huggingface.co/facebook/bart-large-mnli) by 24 percentage points (60% accuracy vs 36% accuracy) in a test set with 10 candidate zero-shot classes (the most frequent categories in the test split of [reddgr/nli-chatbot-prompt-categorization](https://huggingface.co/datasets/reddgr/nli-chatbot-prompt-categorization)).
+The current version of the fine-tuned model outperforms the base model [facebook/bart-large-mnli](https://huggingface.co/facebook/bart-large-mnli) by 34 percentage points (76% accuracy vs 42% accuracy) in a test set with 10 candidate zero-shot classes (the most frequent categories in the test split of [reddgr/nli-chatbot-prompt-categorization](https://huggingface.co/datasets/reddgr/nli-chatbot-prompt-categorization)).
 
-The chart below compares the results for the 12 most popular candidate classes in the Test split, where the base model's zero-shot accuracy is outperformed by 25 percentage points:
+The chart below compares the results for the 12 most popular candidate classes in the Test split, where the base model's zero-shot accuracy is outperformed by 32 percentage points:
 
-![Zero-shot prompt classification confusion matrix for reddgr/zero-shot-prompt-classifier-bart-ft](https://talkingtochatbots.com/wp-content/uploads/2025/01/zero-shot-prompt-classification-comparison-12-classes-57-accuracy.png)
+![Zero-shot prompt classification confusion matrix for reddgr/zero-shot-prompt-classifier-bart-ft](https://talkingtochatbots.com/wp-content/uploads/zero-shot-prompt-classifier/12-category-matrix.png)
 
-The dataset and the model are continously updated as they assist with content publishing on my website [Talking to Chatbots](https://talkingtochatbots) 
+We can also use the model to perform zero-shot inferences on combinations of categories formulated in natural language. The chart below compares the results for the 6 main category groups that classify conversations in [Talking to Chatbots](https://talkingtochatbots.com)
+
+![Zero-shot prompt classification confusion matrix for reddgr/zero-shot-prompt-classifier-bart-ft](https://talkingtochatbots.com/wp-content/uploads/zero-shot-prompt-classifier/6-category-matrix.png)
+
+The dataset and the model are continuously updated as they assist with content publishing on my website [Talking to Chatbots](https://talkingtochatbots) 
 
 ## Dataset: reddgr/nli-chatbot-prompt-categorization
 
