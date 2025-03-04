@@ -1,0 +1,10 @@
+torch==2.2.2
+scikit-learn
+matplotlib
+ipywidgets
+python-dotenv
+transformers==4.44.2
+pandas
+datasets
+langdetect
+ipython
