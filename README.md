@@ -11,7 +11,7 @@ This model is a fine-tuned version of [facebook/bart-large-mnli](https://hugging
 The purpose of the model is to help classify chatbot prompts into categories that are relevant in the context of working with LLM conversational tools: 
 coding assistance, language assistance, role play, creative writing, general knowledge questions... 
 
-The model is fine-tuned and tested on the natural language inference (NLI) dataset [reddgr/nli-chatbot-prompt-categorization](https://huggingface.co/datasets/reddgr/nli-chatbot-prompt-categorization)
+The model is fine-tuned and tested on a natural language inference (NLI) dataset I built [reddgr/nli-chatbot-prompt-categorization](https://huggingface.co/datasets/reddgr/nli-chatbot-prompt-categorization)
 
 Below is a confusion matrix calculated on zero-shot inferences for the 10 most popular categories in the Test split of [reddgr/nli-chatbot-prompt-categorization](https://huggingface.co/datasets/reddgr/nli-chatbot-prompt-categorization) at the time of the first model upload. The classification with the base model on the same small test dataset is shown for comparison:
 
