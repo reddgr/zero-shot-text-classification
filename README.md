@@ -23,7 +23,7 @@ The chart below compares the results for the 12 most popular candidate classes i
 
 ![Zero-shot prompt classification confusion matrix for reddgr/zero-shot-prompt-classifier-bart-ft](https://talkingtochatbots.com/wp-content/uploads/zero-shot-prompt-classifier/12-category-matrix.png)
 
-We can also use the model to perform zero-shot inferences on combinations of categories formulated in natural language. The chart below compares the results for the 6 main category groups that classify conversations in [Talking to Chatbots](https://talkingtochatbots.com)
+We can also use the model to perform zero-shot inferences on combinations of categories formulated in natural language. The chart below compares the results for the 6 main category groups that classify tions in [Talking to Chatbots](https://talkingtochatbots.com)
 
 ![Zero-shot prompt classification confusion matrix for reddgr/zero-shot-prompt-classifier-bart-ft](https://talkingtochatbots.com/wp-content/uploads/zero-shot-prompt-classifier/6-category-matrix.png)
 
@@ -33,6 +33,6 @@ The dataset and the model are continuously updated as they assist with content p
 
 The dataset contains chatbot prompts annotated with natural language inference (NLI) category hypotheses and labels ({0: "contradiction", 1: "neutral", 2: "entailment"}).
 
-The primary purpose is to perform natural language inference categorization of chatbot conversations, such as those shared by the author on Talking to Chatbots.
+The primary purpose is to perform natural language inference categorization of chatbot chats, such as those shared by the author on Talking to Chatbots.
 
 Category hypotheses (language, coding, role play, science...) are chosen as the most relevant in the context of chatbot conversations, whose language context and main use cases typically differ heavily from the text patterns and categories frequently found in the most popular NLI datasets sourced from news, scientific articles, news publications, etc.
