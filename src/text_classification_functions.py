@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 class Classifier:
     def __init__(self, model_path, label_map, verbose = False):
         self.model_path = model_path
-        self.classifier = pipeline("text-classification", model=model_path, tokenizer=model_path, device=0 if torch.cuda.is_available() else -1)
+        self.classifier = pipeline("text-classification", model=model_path, tokenizer=model_path, device=0 if torch.cuda.is_available() else -1, framework="pt")
         self.label_map = label_map
         if verbose: 
             self.print_device_information()
@@ -29,7 +29,7 @@ class Classifier:
 
     def tokenize_and_trim(self, text):
         max_length = self.classifier.tokenizer.model_max_length
-        inputs = self.classifier.tokenizer(text, truncation=True, max_length=max_length, return_tensors="tf")
+        inputs = self.classifier.tokenizer(text, truncation=True, max_length=max_length, return_tensors="pt")
         return self.classifier.tokenizer.decode(inputs['input_ids'][0], skip_special_tokens=True)
 
 
@@ -198,7 +198,7 @@ class ZeroShotClassifier(Classifier):
     def __init__(self, model_path, tokenizer_path, candidate_labels):
         self.model_path = model_path
         self.candidate_labels = candidate_labels
-        self.classifier = pipeline("zero-shot-classification", model=model_path, tokenizer=tokenizer_path, clean_up_tokenization_spaces=True, device=0 if torch.cuda.is_available() else -1)
+        self.classifier = pipeline("zero-shot-classification", model=model_path, tokenizer=tokenizer_path, clean_up_tokenization_spaces=True, device=0 if torch.cuda.is_available() else -1, framework="pt")
 
     def classify_text(self, text, top_n=None, multi_label=False):
         """

@@ -1,9 +1,11 @@
-torch==2.2.2
+torch
 scikit-learn
 matplotlib
 ipywidgets
 python-dotenv
-transformers==4.44.2
+transformers>=5
+huggingface_hub>=1.31,<2
+fsspec>=2023.1.0,<=2026.2.0
 pandas
 datasets
 langdetect
