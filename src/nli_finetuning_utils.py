@@ -1,11 +1,25 @@
+import os
+
+# PyTorch 2.15 allocates a cuBLAS workspace per op and restores it with
+# cublasSetStream. That restore returns CUBLAS_STATUS_INTERNAL_ERROR once the
+# caching allocator is holding this 8GB GPU. One cached workspace avoids it.
+os.environ.setdefault("TORCH_CUBLAS_WORKSPACE_CACHE", "1")
+
 import pandas as pd
 import random
 from datasets import Dataset
 from transformers import Trainer, TrainingArguments, TrainerCallback, TrainerState, TrainerControl
+from transformers.integrations import TensorBoardCallback
 import torch
 from torch.optim import AdamW
 from torch.optim.lr_scheduler import CosineAnnealingLR
+from torch.utils.tensorboard import SummaryWriter
 from torch import cuda
+
+
+def _tensorboard_callback(output_dir):
+    """Write the same TensorBoard events `logging_dir` used to receive."""
+    return TensorBoardCallback(SummaryWriter(log_dir=os.path.join(output_dir, "logs")))
 
 class NLIModelFineTuner:
     def __init__(self, dataset, labels, model, tokenizer):
@@ -167,8 +181,8 @@ class NLIModelFineTuner:
             save_steps=10,
             save_total_limit=2,
             learning_rate=learning_rate,
-            logging_dir=f"{output_dir}/logs",
             eval_strategy="epoch",
+            gradient_checkpointing=True,
             #report_to="none",
         )
 
@@ -180,7 +194,8 @@ class NLIModelFineTuner:
             model=self.model,
             args=training_args,
             train_dataset=self.train_dataset,
-            eval_dataset=self.eval_dataset
+            eval_dataset=self.eval_dataset,
+            callbacks=[_tensorboard_callback(output_dir)],
         )
 
         print("Fine-tuning in progress...")
@@ -224,8 +239,8 @@ class NLIModelFineTuner:
             per_device_train_batch_size=batch_size,
             save_steps=10,
             save_total_limit=2,
-            logging_dir=f"{output_dir}/logs",
-            eval_strategy="epoch"
+            eval_strategy="epoch",
+            gradient_checkpointing=True,
         )
 
         print_lr_callback = LogLearningRateCallback(scheduler)
@@ -249,7 +264,7 @@ class NLIModelFineTuner:
             train_dataset=self.train_dataset,
             eval_dataset=self.eval_dataset,
             optimizers=(optimizer, scheduler),  # Pass both optimizer and scheduler
-            callbacks=[print_lr_callback, EpochEndCallback()]
+            callbacks=[print_lr_callback, EpochEndCallback(), _tensorboard_callback(output_dir)]
         )
 
         print("Fine-tuning in progress...")
